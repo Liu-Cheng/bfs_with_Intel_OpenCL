@@ -8,8 +8,9 @@ ECHO :=
 else
 ECHO := @
 endif
+DEBUG := 0
 
-TARGET := mem_bandwidth
+TARGET := host
 
 # Where is the Altera SDK for OpenCL software?
 ifeq ($(wildcard $(ALTERAOCLSDKROOT)),)
@@ -22,7 +23,7 @@ endif
 # Directories.
 TARGET_DIR := bin
 INC_DIRS := host/inc ../common/inc ../extlibs/inc 
-
+ 
 # All include files.
 INC_FILES := $(foreach D,$(INC_DIRS),$(wildcard $D/*.h))
 
@@ -30,7 +31,7 @@ INC_FILES := $(foreach D,$(INC_DIRS),$(wildcard $D/*.h))
 SRCS := $(wildcard ../common/src/AOCLUtils/*.cpp) $(wildcard src/*.cpp)
 
 # Libraries.
-LIBS :=
+LIBS := rt pthread
 
 # Compiler.
 CXX := g++
@@ -45,7 +46,9 @@ CXXFLAGS += -g -D__USE_XOPEN2K8
 else
 CXXFLAGS += -O2 -D__USE_XOPEN2K8
 endif
-CXXFLAGS+= -Wall -I$AALSDK/include -I/usr/local/include -DHAVE_CONFIG_H -DTESTB -g -L${AALSDK}/lib  -L/usr/local/lib -L/home/xinyuc/Opt/libtool/lib
+CXXFLAGS+= -Wall -I${AALSDK}/include -I/usr/local/include -DHAVE_CONFIG_H -DTESTB -g -L${AALSDK}/lib  -L/usr/local/lib -L/home/xinyuc/Opt/libtool/lib
+
+CPPFLAGS += -std=c++11 -fopenmp
 
 # Make it all!
 all : $(TARGET_DIR)/$(TARGET)
