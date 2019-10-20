@@ -28,7 +28,7 @@ it achieves comparable or even better performance.
 
 ## Cite this work
 This work will appear in FPT'19.
-
+```
 @inproceedings{cheng2019obfs,
 title={{OBFS}:OpenCL Based BFS Optimizations on Software Programmable {FPGAs}},
 author={Liu, Cheng and Chen, Xinyu and He, Bingsheng and Liao, Xiaofei and Wang, Ying and Zhang, Lei},
@@ -36,6 +36,7 @@ booktitle={Field-Programmable Technology (FPT), 2019 International Conference on
 year={2019},
 organization={IEEE}
 }
+```
 
 ## Acknowlegement 
 * We acknowledge Intel for the access to Intel Xeon+FPGA system through the Hardware Accelerator Research Program(HARP-v2).
