@@ -1,13 +1,4 @@
-Breadth First Search (BFS) is a key building block of graph processing 
-and there have been considerable efforts devoted to accelerating BFS on FPGAs
-for the sake of both performance and energy efficiency. Prior work 
-typically built the BFS accelerator through handcrafted circuit design using 
-hardware description language (HDL). Despite the relatively good performance, 
-the HDL based design leads to extremely low design productivity, and incurs 
-high portability and maintenance cost. While high level synthesis (HLS) 
-tools make it convenient to create a functionally correct BFS accelerator, 
-the performance can be much lower the handcrafted design with HDL. 
-
+## Brief introduction to OBFS
 To obtain both the near handcrafted design performance and better software-like features such as 
 portability and maintenance, we propose OBFS, an OpenCL based BFS accelerator 
 on software programmable FPGAs, and explore a series of high-level 
@@ -22,3 +13,30 @@ According to the experiments, OBFS achieves 9.5X and 5.5X performance speedup on
 vertex-centric implementation and an edge-centric implementation respectively 
 on Intel Harp-v2. When compared to prior handcrafted designs, 
 it achieves comparable or even better performance. 
+
+## Prerequisites
+* gcc4.8 or above
+* Altera SDK for OpenCL 16.0.2
+* Target FPGA boards Intel Xeon-FPGA (Harp-v2)
+
+## Quick usage
+* Preprare the graph data stored in edges or CSR.
+* Compile *.cl code in ./src to generate FPGA bitstream of the kernel
+* Compile *.cpp code in ./src
+* move the script to target host machine
+* run the script 
+
+## Cite this work
+This work will appear in FPT'19.
+
+@inproceedings{cheng2019obfs,
+title={{OBFS}:OpenCL Based BFS Optimizations on Software Programmable {FPGAs}},
+author={Liu, Cheng and Chen, Xinyu and He, Bingsheng and Liao, Xiaofei and Wang, Ying and Zhang, Lei},
+booktitle={Field-Programmable Technology (FPT), 2019 International Conference on},
+year={2019},
+organization={IEEE}
+}
+
+## Acknowlegement 
+* We acknowledge Intel for the access to Intel Xeon+FPGA system through the Hardware Accelerator Research Program(HARP-v2).
+* This work is originally done in National University of Singapore. 
