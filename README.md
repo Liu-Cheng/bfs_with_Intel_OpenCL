@@ -40,4 +40,4 @@ organization={IEEE}
 
 ## Acknowlegement 
 * We acknowledge Intel for the access to Intel Xeon+FPGA system through the Hardware Accelerator Research Program(HARP-v2).
-* This work is originally done in National University of Singapore. 
+* Initial work was originally done in National University of Singapore. 
